@@ -107,11 +107,11 @@ Once the script is running and Home Assistant is integrated, you can control you
     mosquitto_pub -h YOUR_MQTT_BROKER_IP -t "virtualbox/command" -m "start YourVMName"
 ```
 
-## Force Stop a VM
-    Command: force_stop <vm_name>
+## Stop a VM
+    Command: stop <vm_name>
     Example:
 ```
-    mosquitto_pub -h YOUR_MQTT_BROKER_IP -t "virtualbox/command" -m "force_stop YourVMName"
+    mosquitto_pub -h YOUR_MQTT_BROKER_IP -t "virtualbox/command" -m "stop YourVMName"
 ```
 
 ## Reset (Reboot) a VM
