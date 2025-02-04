@@ -118,6 +118,13 @@ Once the script is running and Home Assistant is integrated, you can control you
     mosquitto_pub -h YOUR_MQTT_BROKER_IP -t "virtualbox/command" -m "stop YourVMName"
 ```
 
+## ACPI shut down
+    Command: stop <vm_name>
+    Example:
+```
+    mosquitto_pub -h YOUR_MQTT_BROKER_IP -t "virtualbox/command" -m "acpi YourVMName"
+```
+
 ## Reset (Reboot) a VM
     Command: reset <vm_name>
     Example:
