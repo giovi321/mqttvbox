@@ -4,10 +4,10 @@ import json
 import logging
 
 # Configuration
-MQTT_BROKER = "192.168.1.1"
+MQTT_BROKER = "192.168.1.65"
 MQTT_PORT = 1883
-MQTT_USERNAME = "username"
-MQTT_PASSWORD = "password"
+MQTT_USERNAME = "mqtt"
+MQTT_PASSWORD = "mqtt_password"
 MQTT_TOPIC_PREFIX = "homeassistant"
 VBOX_USER = "vbox"
 
@@ -76,6 +76,7 @@ def publish_mqtt_discovery(vm_name):
     commands = {
         "start": ("start", "mdi:play"),
         "stop": ("stop", "mdi:stop"),
+        "acpi": ("acpi", "mdi:stop"),
         "reset": ("reset", "mdi:restart"),
         "pause": ("pause", "mdi:pause"),
         "resume": ("resume", "mdi:play"),
@@ -88,7 +89,7 @@ def publish_mqtt_discovery(vm_name):
         button_payload = {
             "name": f"{vm_name} {cmd.capitalize()}",
             "command_topic": "virtualbox/command",
-            "payload_press": payload,
+            "payload_press": f"{payload} {vm_name}",
             "unique_id": f"virtualbox_{vm_name}_{cmd}",
             "device": device_info,
             "icon": icon
@@ -137,6 +138,8 @@ def handle_command(client, userdata, msg):
         run_vboxmanage(["modifyvm", vm_name, "--vrde", "on"])
     elif action == "rdp_disable":
         run_vboxmanage(["modifyvm", vm_name, "--vrde", "off"])
+    elif action == "acpi":
+        run_vboxmanage(["controlvm", vm_name, "acpipowerbutton"])
 
     # Update status after command execution
     update_vm_status()
