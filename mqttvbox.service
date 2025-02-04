@@ -1,0 +1,14 @@
+[Unit]
+Description=MQTT VirtualBox Service
+After=network.target
+
+[Service]
+ExecStart=/root/mqttvbox/bin/python3 /root/mqttvbox/mqttvbox.py
+WorkingDirectory=/root/mqttvbox
+User=root
+Group=root
+Restart=always
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
