@@ -2,7 +2,7 @@
 
 This script allows you to control your VirtualBox VMs via MQTT and integrates with Home Assistant for automatic discovery of virtual machines. You can start, stop, reset, and enable/disable RDP for your VMs directly from Home Assistant, and monitor their status in real-time. More features are to come.
 
-![image](https://github.com/user-attachments/assets/57b78503-30c2-4278-bf4a-027243a187a0)
+![image](https://github.com/user-attachments/assets/60e3d6dd-5b9a-4a2a-b6dc-6a64dad489e7)
 ![image](https://github.com/user-attachments/assets/70b62fc5-a5cf-4a24-80a5-ae406c758f5e)
 
 
