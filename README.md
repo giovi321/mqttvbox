@@ -76,12 +76,16 @@ Ensure the script is executable. If not, run the following command:
 You can run the script manually using the following command:
 `python virtualbox_mqtt_control.py`
 
-For production environments, you can set up a systemd service.
+For production environments, you can set up a systemd service as follows
 
-### Creating a systemd service
+```
+cp mqttvbox.service /etc/systemd/system/
+systemctl daemon reload
+systemctl enable mqttvbox.service
+systemctl start mqttvbox.service
+```
 
 # Home Assistant Integration
-
 Once the script is running, Home Assistant will automatically discover the virtual machines through MQTT. The discovery messages will create switches and sensors in Home Assistant for each VM.
 
 - Ensure MQTT Integration is Configured in Home Assistant:
