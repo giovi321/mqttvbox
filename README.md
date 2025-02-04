@@ -56,11 +56,11 @@ cd virtualbox-mqtt-control
 Open the script (mqttvbox.py) and update the following variables:
 
 - MQTT_BROKER: Set this to the IP address of your MQTT broker.
-- MQTT_PORT = 1883
-- MQTT_USERNAME = "MQTT-BROKER-USERNAME"
-- MQTT_PASSWORD = "MQTT-BROKER-PASSWORD"
+- MQTT_PORT: MQTT broker port, normally you don't need to change it.
+- MQTT_USERNAME: Set this to your MQTT broker username.
+- MQTT_PASSWORD: Set this to your MQTT broker password.
 - VBOX_USER: Set this to the user that has permissions to control VirtualBox (e.g., vbox).
-- TOPIC_COMMAND: This is the topic the script will listens to for incoming commands and use to publish status updates to.
+- MQTT_TOPIC_PREFIX: This is the topic the script will use for autodiscovery, you normally don't need to change this.
 
 ```
 MQTT_BROKER = "MQTT-BROKER-ADDRESS"
